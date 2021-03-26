@@ -12,7 +12,7 @@ namespace Cashflow.Bot
             return new ParsedCommandModel()
             {
                 Command = parsed.Groups["CommandName"].Value,
-                Arguments = parsed.Groups["Args"].Name.Split(' ')
+                Arguments = parsed.Groups["Args"].Value.Split(' ')
             };
         }
     }

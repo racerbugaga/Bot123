@@ -5,16 +5,13 @@ using Telegram.Bot.Types;
 
 namespace Cashflow.Bot.Commands
 {
-    public class MeCommand : Command
+    public class UnRegisterUserCommand : Command
     {
         private readonly UserRepository _userRepository;
-        public MeCommand(ITelegramBotClient botClient) : base(botClient)
-        {
-        }
-
-        public override string Name => "me";
+        public override string Name => "unregisterUser";
         public override async Task Request(User from, Chat chat, string[] args)
         {
+            _userRepository.SetInternalName(from.Id, null);
             var user = _userRepository.GetByTelegramId(from.Id);
             await BotClient.SendTextMessageAsync(
                 chatId: chat,
@@ -26,7 +23,12 @@ namespace Cashflow.Bot.Commands
 
         public override string GetDescription()
         {
-            return "Текущий пользователь";
+            return "Регистраия пользователя";
+        }
+
+        public UnRegisterUserCommand(ITelegramBotClient botClient, UserRepository userRepository) : base(botClient)
+        {
+            _userRepository = userRepository;
         }
     }
 }

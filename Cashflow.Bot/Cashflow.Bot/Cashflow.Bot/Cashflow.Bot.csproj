@@ -49,10 +49,36 @@
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\MeCommand.cs" />
     <Compile Include="Commands\NotFoundCommand.cs" />
+    <Compile Include="Commands\UnRegisterUserCommand.cs" />
+    <Compile Include="DBContext.cs" />
+    <Compile Include="Migrations\202103260750564_user.cs" />
+    <Compile Include="Migrations\202103260750564_user.designer.cs">
+      <DependentUpon>202103260750564_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103260809092_topic.cs" />
+    <Compile Include="Migrations\202103260809092_topic.designer.cs">
+      <DependentUpon>202103260809092_topic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103260818411_subscriptions.cs" />
+    <Compile Include="Migrations\202103260818411_subscriptions.designer.cs">
+      <DependentUpon>202103260818411_subscriptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103260820211_subscriptions2.cs" />
+    <Compile Include="Migrations\202103260820211_subscriptions2.designer.cs">
+      <DependentUpon>202103260820211_subscriptions2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MessagesEntity.cs" />
+    <Compile Include="Models\SubscriptionEntity.cs" />
+    <Compile Include="Models\TopicEntity.cs" />
+    <Compile Include="Models\UserEntity.cs" />
     <Compile Include="ParsedCommandModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\RegisterUserCommand.cs" />
+    <Compile Include="Repositories\SubscriptionRepository.cs" />
+    <Compile Include="Repositories\TopicRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -68,6 +94,19 @@
       <Version>15.7.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103260750564_user.resx">
+      <DependentUpon>202103260750564_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103260809092_topic.resx">
+      <DependentUpon>202103260809092_topic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103260818411_subscriptions.resx">
+      <DependentUpon>202103260818411_subscriptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103260820211_subscriptions2.resx">
+      <DependentUpon>202103260820211_subscriptions2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
